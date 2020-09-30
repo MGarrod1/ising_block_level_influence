@@ -11,19 +11,18 @@ Plot showing the estimate of the mean-field optimal control field on a two block
 
 ### Applications
 
-This module is used in (repo link TBC) for the numerical simulations in the paper:
+This module is used for the numerical simulations in the paper:
 
 Garrod M., and N. S. Jones. Influencing social networks without knowledge of
 network micro-structure. In preparation, 2020.
 
+An earlier version of this code was used for the numerical simulations in my PhD thesis (Insert link to thesis).
+
 ### References
 
-An earlier implementation of the mean-field Ising Inlfuence Maximisation algorithm is described in the paper: 
+The implementation of the Ising influence maximisation algorithm builds upon ideas described in the paper: 
 
 Lynn, Christopher, and Daniel D. Lee. "Maximizing influence in an ising network: A mean-field optimal solution." Advances in Neural Information Processing Systems. 2016. 
-
-Our code builds upon ideas presented in this paper. The distinctions are discussed in our paper and my PhD thesis (add links to this).
-
 
 
 
