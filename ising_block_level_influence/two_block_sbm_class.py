@@ -268,7 +268,7 @@ class two_block_sbm_analysis :
         return block_control , mag_vals
 
 
-    def plot_full_control_on_network(self,sbm_graph,full_control,file_path="two_block/full_control_on_graph") :
+    def plot_full_control_on_network(self,sbm_graph,full_control,file_path="two_block/full_control_on_graph",label=None) :
 
 
 
@@ -290,16 +290,19 @@ class two_block_sbm_analysis :
         sm._A = []
         cbar = plt.colorbar(sm)
 
+        if label is not None :
+            plt.text(-0.20,0.25, label, fontsize=25)
+
         cbar.ax.set_ylabel('Control', rotation=270,fontsize=20)
         cbar.ax.tick_params(labelsize=20)
         plt.savefig(file_path,bbox_inches='tight')
 
-    def plot_control_vs_degrees(self,sbm_graph,full_control,block_control,file_path="two_block/control_vs_degrees") :
+    def plot_control_vs_degrees(self,sbm_graph,full_control,block_control,file_path="two_block/control_vs_degrees",label=None) :
 
         node_degs = list(dict(sbm_graph.degree()).values())
 
 
-        plt.figure(1,figsize=(8,8))
+        plt.figure(1,figsize=(6,6))
         plt.clf()
         plt.plot(node_degs, full_control, 'bo',label="Full Graph IIM")
         plt.plot([0.0, max(node_degs)], [block_control[0], block_control[0]], 'g', label="Block 1 control", lw=4.0,
@@ -310,17 +313,16 @@ class two_block_sbm_analysis :
         plt.plot([12.5, 12.5], [0.0, max(full_control)], 'g--', label="Mean degree B1",lw=3.0,alpha=0.6)
         plt.plot([5.0, 5.0], [0.0, max(full_control)], 'r--', label="Mean degree B2",lw=3.0,alpha=0.6)
 
-        plt.xlabel("Degree", fontsize=20)
-        plt.ylabel("Control", fontsize=20)
-        plt.xticks(fontsize=15)
-        plt.yticks(fontsize=15)
+        plt.xlabel("Degree", fontsize=16)
+        plt.ylabel("Control", fontsize=16)
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
         plt.legend(fontsize=15,loc='upper right')
         plt.savefig(file_path,bbox_inches='tight')
 
-    def plot_control_histogram(self,full_control,block_control,file_path='two_block/control_hist') :
+    def plot_control_histogram(self,full_control,block_control,file_path='two_block/control_hist',label=None) :
 
-        plt.figure(1,figsize=(8,8))
-        plt.clf()
+        plt.figure(figsize=(6,6))
         n1, bins, hist = plt.hist(full_control[0:self.N1], label='Block 1 full', alpha=0.6, color='g')
         n2, bins, hist = plt.hist(full_control[self.N1:self.N1 + self.N2], label='Block 2 full', alpha=0.5, color='r')
 
@@ -333,11 +335,13 @@ class two_block_sbm_analysis :
         plt.plot([np.mean(full_control[0:self.N1]), np.mean(full_control[0:self.N1])], [0.0, top_of_plot], 'g', lw=2.0)
         plt.plot([np.mean(full_control[self.N1:self.N1 + self.N2]), np.mean(full_control[self.N1:self.N1 + self.N2])], [0.0, top_of_plot], 'r', lw=2.0)
 
-        plt.xlabel("Control", fontsize=20)
-        plt.ylabel("Frequency", fontsize=20)
-        plt.xticks(fontsize=15)
-        plt.yticks(fontsize=15)
-        plt.legend(fontsize=15,loc='upper right')
+        plt.xlabel("Control", fontsize=16)
+        plt.ylabel("Frequency", fontsize=16)
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+        plt.legend(fontsize=14,loc='upper right')
+        if label is not None :
+            plt.text(-2.1, 105, label, fontsize=25)
         plt.savefig(file_path,bbox_inches='tight')
 
 
