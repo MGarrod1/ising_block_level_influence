@@ -1,5 +1,5 @@
 
-Code used the implement the mean-field Ising Influence Maximization algorithm at both the level of a full network and at the level of blocks within a graph with block structure. Also includes code for performing Monte Carlo simulations of Ising systems on graphs used to evaulate the influence algorithms.
+Code used the implement the mean-field Ising Influence Maximization algorithm at both the level of a full network and at the level of blocks within a graph with block structure.
 
 ![](https://github.com/MGarrod1/ising_block_level_influence/blob/master/example/full_control_on_graph.png)
 
