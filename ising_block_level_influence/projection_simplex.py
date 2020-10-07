@@ -5,6 +5,8 @@ Large-scale Multiclass Support Vector Machine Training via Euclidean Projection 
 Mathieu Blondel, Akinori Fujino, and Naonori Ueda.
 ICPR 2014.
 http://www.mblondel.org/publications/mblondel-icpr2014.pdf
+
+From: https://gist.github.com/mblondel/6f3b7aaad90606b98f71
 """
 
 import numpy as np

@@ -24,6 +24,12 @@ The implementation of the Ising influence maximisation algorithm builds upon ide
 
 Lynn, Christopher, and Daniel D. Lee. "Maximizing influence in an ising network: A mean-field optimal solution." Advances in Neural Information Processing Systems. 2016. 
 
+The code used for the projection onto the positive simplex is based on the ideas presented in the paper:
 
+Large-scale Multiclass Support Vector Machine Training via Euclidean Projection onto the Simplex
+Mathieu Blondel, Akinori Fujino, and Naonori Ueda.
+ICPR 2014.
+
+and can be found at: [https://gist.github.com/mblondel/6f3b7aaad90606b98f71](https://gist.github.com/mblondel/6f3b7aaad90606b98f71)
 
 
