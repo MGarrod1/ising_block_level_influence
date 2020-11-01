@@ -465,8 +465,6 @@ class ising_analysis(block_mf_ising_system) :
             full_control , full_optimize_mvals = self.full_mf_system.mf_IIM(beta,Field_Budget)
             derived_controls['full']=full_control
             control_diagnostics['full optimize']=full_optimize_mvals
-            if abs(np.sum(block_control_full) - np.sum(full_control)) > 0.1:
-                pdb.set_trace()
 
 
 
