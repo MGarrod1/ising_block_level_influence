@@ -366,7 +366,7 @@ class mean_field_ising_system :
             if block_sizes is not None :
                 gradient = np.asarray([(i*j)/np.sum(block_sizes) for i,j in zip(block_sizes,gradient)])
 
-            print(f"gradient = {gradient}")
+            # print(f"gradient = {gradient}")
             control_field = control_field + self.mf_iim_step_size*gradient
             if block_sizes is not None :
                 #block_spread_control = np.asarray([i*j for i,j in zip(block_sizes,control_field)])

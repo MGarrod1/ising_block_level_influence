@@ -435,10 +435,11 @@ class ising_analysis(block_mf_ising_system) :
             #self.mf_iim_init_control=self.block_level_average(neg_cancel_control)
             self.mf_iim_init_control=np.zeros(len(self.block_sizes))
 
-            #block_control , block_optimize_mvals = self.mf_IIM(beta,Field_Budget)
             block_control , block_optimize_mvals = self.mf_IIM(beta,Field_Budget,block_sizes=self.block_sizes)
-
-            block_control_full = split_over_blocks(block_control,self.block_sizes)
+            print(f"Block control iterations ={len(block_optimize_mvals)}")
+            block_control_full = []
+            for k in range(len(block_control)):
+                block_control_full = np.concatenate((block_control_full, (block_control[k]) * np.ones(self.block_sizes[k])))
             derived_controls['block'] = block_control_full
 
         if self.controls_to_get['AOB control'] == True :
@@ -504,6 +505,7 @@ class ising_analysis(block_mf_ising_system) :
         beta = beta_factor*self.beta_c
         for key, control in control_dict.items():
             print("Evaluating {}".format(key))
+            print(f"Control magnitude = {np.sum(control)}")
 
             mags , block_level_overall_means = self.multiple_mags(beta_factor,T,T_Burn,MC_Runs,initial_state=self.eval_initial_state,addition_control=control)
 
