@@ -259,7 +259,9 @@ class mean_field_ising_system :
     def mf_sparse_magnetisation_gradient(self,m, beta):
 
         A_sparse = nx.to_scipy_sparse_matrix(self.graph)
-        m_square_inv = [1.0 / (1 - i ** 2) for i in m]
+        # Infinite entries occur if m=1 for any node.
+        # Take inf to be 10**20 to prevent this (may introduce minor error).
+        m_square_inv = [ min( 1.0 / (1 - i ** 2) , float(10**20) ) for i in m]
         D_M = sparse.diags(m_square_inv, offsets=0, shape=None, format=None, dtype=None)
         Stability_sparse = (1.0 / beta) * (D_M - beta * A_sparse)
 
